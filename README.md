@@ -1,7 +1,7 @@
 # ansible
 
 # List all hosts
-ansible --list-host all
+```ansible --list-host all```
 
 **Exampple : ansible -i sample --list-hosts all**
  ```
