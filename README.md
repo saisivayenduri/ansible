@@ -4,7 +4,7 @@
 ansible --list-host all
 
 **ansible -i sample --list-hosts all**
- 
+ ```
  hosts (6):
     mail.example.com
     foo.example.com
@@ -12,3 +12,4 @@ ansible --list-host all
     one.example.com
     two.example.com
     three.example.com
+```
