@@ -1,4 +1,4 @@
-# ansible
+# ANSIBLE
 
 # List all hosts
 ```ansible --list-host all```
