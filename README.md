@@ -8,16 +8,9 @@ Inventory is nothing but the collection of all hosts that you want to connect an
 # SAMPLE INVENTORY
 **Example:**
 ```
-mail.example.com
-
-[webservers]
-foo.example.com
-bar.example.com
-
-[dbservers]
-one.example.com
-two.example.com
-three.example.com
+[dev]
+34.93.68.208
+34.93.171.87
 ```
 
 # List all hosts
@@ -25,11 +18,7 @@ three.example.com
 
 **Exampple : ansible -i sample --list-hosts all**
  ```
- hosts (6):
-    mail.example.com
-    foo.example.com
-    bar.example.com
-    one.example.com
-    two.example.com
-    three.example.com
+  hosts (2):
+    34.93.68.208
+    34.93.171.87
 ```
