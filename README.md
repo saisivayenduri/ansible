@@ -67,7 +67,7 @@ This is will execute the "ls -la" command on all the dev hosts mentioned in our 
 
 # PLAYBOOKS
 ```
-A playbook is file to execute a sequence of tasks on all the hosts.
+A playbook is file to execute a sequence of tasks on the hosts.
 A playbook file is a YML file.
 ```
 
