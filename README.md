@@ -60,5 +60,7 @@ We can select particular group of hosts using wildcard characters or by using th
 # TASKS
 # Simple tasks
 
-```ansible -m command -a "ls -la" dev```
+```ansible -m command -a "ls -la" dev
+This is will execute the "ls -la" command on all the dev hosts mentioned in our inventory file.
+```
 
