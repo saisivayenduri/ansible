@@ -3,7 +3,7 @@
 # List all hosts
 ansible --list-host all
 
-**ansible -i sample --list-hosts all**
+**Exampple : ansible -i sample --list-hosts all**
  ```
  hosts (6):
     mail.example.com
