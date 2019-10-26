@@ -57,3 +57,8 @@ We can select particular group of hosts using wildcard characters or by using th
     34.93.171.87
 ```
 
+# TASKS
+# Simple tasks
+
+```ansible -m command -a "ls -la" dev```
+
