@@ -28,5 +28,35 @@ Inventory is nothing but the collection of all hosts that you want to connect an
 
 # Host Selection
 ```
-We can select particular group of hosts using wildcard characters or by using the group name as input to **--list-hosts** command
+We can select particular group of hosts using wildcard characters or by using the group name as input to --list-hosts command.
 ```
+**Example 1: ansible --list-host all**
+ ```
+  hosts (3):
+    34.93.68.208
+    34.93.171.87
+    35.244.12.65
+```
+**Example 2: ansible --list-host all * **
+ ```
+ This is same as using "all".
+  hosts (3):
+    34.93.68.208
+    34.93.171.87
+    35.244.12.65
+```
+**Example 3: ansible --list-host dev**
+ ```
+ This will list all the hosts which are in dev group
+  hosts (2):
+    34.93.68.208
+    34.93.171.87
+```
+
+**Example 4: ansible --list-host all !dev **
+ ```
+ This will list all the hosts which are not in dev group.
+  hosts (1):
+    35.244.12.65
+```
+
