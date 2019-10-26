@@ -58,10 +58,42 @@ We can select particular group of hosts using wildcard characters or by using th
 ```
 
 # TASKS
-# Simple tasks
+# Simple adhoc tasks
 
 ```
 ansible -m command -a "ls -la" dev
 This is will execute the "ls -la" command on all the dev hosts mentioned in our inventory file.
 ```
 
+# PLAYBOOKS
+```
+A playbook is file to execute a sequence of tasks on all the hosts.
+A playbook file is a YML file.
+```
+
+**Example: hostname.yml**
+```
+---
+  - hosts: all
+    tasks:
+    - command: hostname
+```
+**Output**
+```
+PLAY [all] *************************************************************************************************************************
+
+TASK [Gathering Facts] *************************************************************************************************************
+ok: [35.244.12.65]
+ok: [34.93.68.208]
+ok: [34.93.171.87]
+
+TASK [command] *********************************************************************************************************************
+skipping: [35.244.12.65]
+skipping: [34.93.171.87]
+skipping: [34.93.68.208]
+
+PLAY RECAP *************************************************************************************************************************
+34.93.171.87               : ok=1    changed=0    unreachable=0    failed=0    skipped=1    rescued=0    ignored=0
+34.93.68.208               : ok=1    changed=0    unreachable=0    failed=0    skipped=1    rescued=0    ignored=0
+35.244.12.65               : ok=1    changed=0    unreachable=0    failed=0    skipped=1    rescued=0    ignored=0
+```
