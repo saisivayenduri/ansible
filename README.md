@@ -37,7 +37,7 @@ We can select particular group of hosts using wildcard characters or by using th
     34.93.171.87
     35.244.12.65
 ```
-**Example 2: ansible --list-hosts all ***
+**Example 2: ansible --list-hosts * **
  ```
  This is same as using "all".
   hosts (3):
