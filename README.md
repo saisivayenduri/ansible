@@ -77,23 +77,30 @@ A playbook file is a YML file.
   - hosts: all
     tasks:
     - command: hostname
+    - command: pwd
 ```
+```ansible-playbook hostname.yml```
 **Output**
 ```
 PLAY [all] *************************************************************************************************************************
 
 TASK [Gathering Facts] *************************************************************************************************************
-ok: [35.244.12.65]
-ok: [34.93.68.208]
 ok: [34.93.171.87]
+ok: [34.93.68.208]
+ok: [35.244.12.65]
 
 TASK [command] *********************************************************************************************************************
 skipping: [35.244.12.65]
 skipping: [34.93.171.87]
 skipping: [34.93.68.208]
 
+TASK [command] *********************************************************************************************************************
+skipping: [35.244.12.65]
+skipping: [34.93.68.208]
+skipping: [34.93.171.87]
+
 PLAY RECAP *************************************************************************************************************************
-34.93.171.87               : ok=1    changed=0    unreachable=0    failed=0    skipped=1    rescued=0    ignored=0
-34.93.68.208               : ok=1    changed=0    unreachable=0    failed=0    skipped=1    rescued=0    ignored=0
-35.244.12.65               : ok=1    changed=0    unreachable=0    failed=0    skipped=1    rescued=0    ignored=0
+34.93.171.87               : ok=1    changed=0    unreachable=0    failed=0    skipped=2    rescued=0    ignored=0
+34.93.68.208               : ok=1    changed=0    unreachable=0    failed=0    skipped=2    rescued=0    ignored=0
+35.244.12.65               : ok=1    changed=0    unreachable=0    failed=0    skipped=2    rescued=0    ignored=0
 ```
