@@ -1,0 +1,6 @@
+---
+  - hosts: all
+    tasks:
+    - command: hostname
+    - command: pwd
+      check_mode: yes
