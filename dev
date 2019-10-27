@@ -1,6 +1,6 @@
 [dev]
-34.93.68.208
-34.93.171.87
+10.160.0.17
+10.160.0.18
 
 [control]
-35.244.12.65 ansible_connection=local
+10.160.0.16 ansible_connection=local
