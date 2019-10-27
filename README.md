@@ -106,7 +106,8 @@ PLAY RECAP *********************************************************************
 ```
 
 **Let's see the how to install a ngnix package in all dev machines using ansible plabooks**
-**Example: development.yml **
+
+**Example: development.yml**
 ```
 ---
  - hosts: dev
