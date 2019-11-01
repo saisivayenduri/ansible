@@ -104,3 +104,40 @@ PLAY RECAP *********************************************************************
 34.93.68.208               : ok=1    changed=0    unreachable=0    failed=0    skipped=2    rescued=0    ignored=0
 35.244.12.65               : ok=1    changed=0    unreachable=0    failed=0    skipped=2    rescued=0    ignored=0
 ```
+
+**Let's see the how to install a ngnix package in all dev machines using ansible plabooks**
+
+**Example: development.yml**
+```
+---
+ - hosts: dev
+   become: true
+   tasks:
+    - name: Install Nginx
+      yum: 
+        name: nginx
+        state: present
+        update_cache: true   
+```
+```
+[dev_krishnasai@controller ansible]$ ansible-playbook development.yml
+```
+**Output**
+```
+PLAY [dev] ***************************************************************************************************************
+
+TASK [Gathering Facts] ***************************************************************************************************
+ok: [10.160.0.17]
+ok: [10.160.0.18]
+
+TASK [Install Nginx] *****************************************************************************************************
+changed: [10.160.0.17]
+changed: [10.160.0.18]
+
+PLAY RECAP ***************************************************************************************************************
+10.160.0.17                : ok=2    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0
+10.160.0.18                : ok=2    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0
+```
+
+
+
