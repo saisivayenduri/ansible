@@ -57,3 +57,87 @@ We can select particular group of hosts using wildcard characters or by using th
     34.93.171.87
 ```
 
+# TASKS
+# Simple adhoc tasks
+
+```
+ansible -m command -a "ls -la" dev
+This is will execute the "ls -la" command on all the dev hosts mentioned in our inventory file.
+```
+
+# PLAYBOOKS
+```
+A playbook is file to execute a sequence of tasks on the hosts.
+A playbook file is a YML file.
+```
+
+**Example: hostname.yml**
+```
+---
+  - hosts: all
+    tasks:
+    - command: hostname
+    - command: pwd
+```
+```ansible-playbook hostname.yml```
+**Output**
+```
+PLAY [all] *************************************************************************************************************************
+
+TASK [Gathering Facts] *************************************************************************************************************
+ok: [34.93.171.87]
+ok: [34.93.68.208]
+ok: [35.244.12.65]
+
+TASK [command] *********************************************************************************************************************
+skipping: [35.244.12.65]
+skipping: [34.93.171.87]
+skipping: [34.93.68.208]
+
+TASK [command] *********************************************************************************************************************
+skipping: [35.244.12.65]
+skipping: [34.93.68.208]
+skipping: [34.93.171.87]
+
+PLAY RECAP *************************************************************************************************************************
+34.93.171.87               : ok=1    changed=0    unreachable=0    failed=0    skipped=2    rescued=0    ignored=0
+34.93.68.208               : ok=1    changed=0    unreachable=0    failed=0    skipped=2    rescued=0    ignored=0
+35.244.12.65               : ok=1    changed=0    unreachable=0    failed=0    skipped=2    rescued=0    ignored=0
+```
+
+**Let's see the how to install a ngnix package in all dev machines using ansible plabooks**
+
+**Example: development.yml**
+```
+---
+ - hosts: dev
+   become: true
+   tasks:
+    - name: Install Nginx
+      yum: 
+        name: nginx
+        state: present
+        update_cache: true   
+```
+```
+[dev_krishnasai@controller ansible]$ ansible-playbook development.yml
+```
+**Output**
+```
+PLAY [dev] ***************************************************************************************************************
+
+TASK [Gathering Facts] ***************************************************************************************************
+ok: [10.160.0.17]
+ok: [10.160.0.18]
+
+TASK [Install Nginx] *****************************************************************************************************
+changed: [10.160.0.17]
+changed: [10.160.0.18]
+
+PLAY RECAP ***************************************************************************************************************
+10.160.0.17                : ok=2    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0
+10.160.0.18                : ok=2    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0
+```
+
+
+

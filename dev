@@ -1,0 +1,6 @@
+[dev]
+10.160.0.17
+10.160.0.18
+
+[control]
+10.160.0.16 ansible_connection=local

@@ -1,0 +1,11 @@
+---
+  - hosts: dev
+    become: true
+    vars:
+      scm_package: git
+    tasks:
+      - name: INSTALLING THE APP PACKAGES
+        yum:
+          name: 
+            - "{{ scm_package }}"
+          state: latest
