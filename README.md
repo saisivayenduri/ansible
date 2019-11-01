@@ -145,6 +145,8 @@ Ansible facts are the system properties collected by the ansible to when it exec
 These facts contains some useful details such as network configuration, ipv4, ipv6, storage information etc.
 
 We can also use these properties in our playbooks.
+
+For gathering facts we can use the ansible built in module called "setup".
 ```
 **Examples:**
 ```
@@ -153,4 +155,35 @@ ansible all -m setup
 ```
 This will give you the facts of dev nodes defined in your host configuration
 ```
+```
+->Whenever you execute a playbook, ansible will by default gather the facts of all the nodes defined in that playbook.
+->If you want you turn off the gathering facts while executing the playbook using "gather_facts: no" in playbook.
+->We can filter the facts according to our needs using "-a" parameter.
+```
 
+**Example:**
+```
+[dev_krishnasai@controller ansible]$ ansible all -m setup -a 'filter=ansible_architecture'
+
+10.160.0.16 | SUCCESS => {
+    "ansible_facts": {
+        "ansible_architecture": "x86_64",
+        "discovered_interpreter_python": "/usr/libexec/platform-python"
+    },
+    "changed": false
+}
+10.160.0.18 | SUCCESS => {
+    "ansible_facts": {
+        "ansible_architecture": "x86_64",
+        "discovered_interpreter_python": "/usr/libexec/platform-python"
+    },
+    "changed": false
+}
+10.160.0.17 | SUCCESS => {
+    "ansible_facts": {
+        "ansible_architecture": "x86_64",
+        "discovered_interpreter_python": "/usr/libexec/platform-python"
+    },
+    "changed": false
+}
+```
