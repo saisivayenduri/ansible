@@ -142,7 +142,9 @@ PLAY RECAP *********************************************************************
 # ANSIBLE FACTS
 ```
 Ansible facts are the system properties collected by the ansible to when it executes on a managedhost or remote host.
-These facts contains some useful details such as network configuration, ipv4, ipv6, storage information etc
+These facts contains some useful details such as network configuration, ipv4, ipv6, storage information etc.
+
+We can also use these properties in our playbooks.
 ```
 **Examples:**
 ```
