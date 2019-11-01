@@ -139,7 +139,7 @@ PLAY RECAP *********************************************************************
 10.160.0.18                : ok=2    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0
 ```
 
-#ANSIBLE FACTS
+# ANSIBLE FACTS
 ```
 Ansible facts are the system properties collected by the ansible to when it executes on a managedhost or remote host.
 These facts contains some useful details such as network configuration, ipv4, ipv6, storage information etc
